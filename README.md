@@ -2,14 +2,14 @@
 
 ## 0. 介绍
 
-`EmailManager`: a util of sending email
-`PropertyManager`: a util of reading .properties
+`EmailUtil`: a util of sending email
+`PropertyUtil`: a util of reading .properties
 
-## 1. EmailManager使用
+## 1. EmailUtil使用
 
 ### 1.1. 实例化
 
-实例化`EmailManager`类，有两种方法：
+实例化`EmailUtil`类，有两种方法：
 
 #### 1.1.1. 方法一
 
@@ -24,7 +24,7 @@
  * @param passwd 登录邮件服务器的密码
  * @throws Exception 当存在为空项时，抛出异常
  */
-public EmailManager(String host, String port, String username, String passwd) throws Exception {}
+public EmailUtil(String host, String port, String username, String passwd) throws Exception {}
 ```
 
 #### 1.1.2. 方法二
@@ -36,7 +36,7 @@ public EmailManager(String host, String port, String username, String passwd) th
  * 构造函数，从配置文件中获取邮件服务器的相关信息
  * @throws Exception 当配置文件不能打开，或者配置文件信息有误时，抛出异常
  */
-public EmailManager() throws Exception {}
+public EmailUtil() throws Exception {}
 ```
 
 `config.properties`配置文件在`src\main\resource`目录下，需用户自行创建，其中需填写的信息示例如下：
@@ -69,12 +69,12 @@ public boolean send(String fromEmail, String toEmail, String subject, String msg
 
 ## 2. 测试
 
-在`EmailManagerTest`中：
+在`EmailUtilTest`中：
 
 - 对`apache.commons.mail`库中的`SimpleEmail.setFrom()`函数进行了单元测试
 
-- 对`EmailManager.isEmpty()`函数进行了单元测试
+- 对`EmailUtil.isEmpty()`函数进行了单元测试
 
-- 对`EmailManager.send()`函数进行了单元测试
+- 对`EmailUtil.send()`函数进行了单元测试
 
-- 对`EmailManager.send()`函数进行了集成测试
+- 对`EmailUtil.send()`函数进行了集成测试
