@@ -7,13 +7,13 @@ import org.apache.commons.mail.SimpleEmail;
 import java.io.IOException;
 
 /***
- * @project ApacheCommonsTest
- * @class EmailManager
+ * @project EmailUtil
+ * @class EmailUtil
  * @author douNine
  * @date 2019/11/2 17:40
- * @description 邮件管理类
+ * @description 邮件工具类
  */
-public class EmailManager {
+public class EmailUtil {
     private String host;
     private String port;
     private String username;
@@ -23,21 +23,21 @@ public class EmailManager {
      * 构造函数，从配置文件中获取邮件服务器的相关信息
      * @throws Exception 当配置文件不能打开，或者配置文件信息有误时，抛出异常
      */
-    public EmailManager() throws Exception {
+    public EmailUtil() throws Exception {
         // 加载配置文件
-        PropertyManager propertyManager = null;
+        PropertyUtil propertyUtil = null;
         try {
-            propertyManager = PropertyManager.getSingleton();
+            propertyUtil = PropertyUtil.getSingleton();
         } catch (IOException e) {
             e.printStackTrace();
             throw new Exception("配置文件获取错误！");
         }
 
         // 获取邮件服务器的信息
-        host = propertyManager.getValue("email.host");
-        port = propertyManager.getValue("email.port");
-        username = propertyManager.getValue("email.username");
-        passwd = propertyManager.getValue("email.passwd");
+        host = propertyUtil.getValue("email.host");
+        port = propertyUtil.getValue("email.port");
+        username = propertyUtil.getValue("email.username");
+        passwd = propertyUtil.getValue("email.passwd");
 
         // 检查邮件服务器信息
         if (host.equals("") || port.equals("") || username.equals("") || passwd.equals("")) {
@@ -54,7 +54,7 @@ public class EmailManager {
      * @param passwd 登录邮件服务器的密码
      * @throws Exception 当存在为空项时，抛出异常
      */
-    public EmailManager(String host, String port, String username, String passwd) throws Exception {
+    public EmailUtil(String host, String port, String username, String passwd) throws Exception {
         this.host = host;
         this.port = port;
         this.username = username;

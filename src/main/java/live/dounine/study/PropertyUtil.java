@@ -5,14 +5,14 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /***
- * @project ApacheCommonsTest
- * @class PropertyManager
+ * @project EmailUtil
+ * @class PropertyUtil
  * @author douNine
  * @date 2019/11/3 10:51
- * @description 配置文件管理对象
+ * @description 配置文件管理工具类
  */
-public class PropertyManager {
-    private static PropertyManager singleton = null; // 全局静态单例
+public class PropertyUtil {
+    private static PropertyUtil singleton = null; // 全局静态单例
     private Properties properties; // 配置文件对象
 
     /**
@@ -20,9 +20,9 @@ public class PropertyManager {
      * @return PropertyManager对象
      * @throws IOException
      */
-    public static PropertyManager getSingleton() throws IOException {
+    public static PropertyUtil getSingleton() throws IOException {
         if (singleton == null) {
-            return singleton = new PropertyManager();
+            return singleton = new PropertyUtil();
         }
         else {
             return singleton;
@@ -33,8 +33,8 @@ public class PropertyManager {
      * 单例模式下的私有构造函数
      * @throws IOException
      */
-    private PropertyManager() throws IOException {
-        InputStream inputStream = EmailManager.class.getClassLoader().getResourceAsStream("config.properties");
+    private PropertyUtil() throws IOException {
+        InputStream inputStream = EmailUtil.class.getClassLoader().getResourceAsStream("config.properties");
         properties = new Properties();
         properties.load(inputStream);
     }
